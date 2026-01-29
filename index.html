@@ -281,8 +281,30 @@
             }
         }
 
-        function handleDownload(title) {
-            alert(`Preparing download for: ${title}\n\nNote: This is a front-end demo. In a live app, the backend would now serve the file.`);
+        function downloadMusic(videoId) {
+           
+           const rapidApiKey = '8a0a1605e0mshf48aa89fcbfbfc7p1fb639jsnbc2a291c08e1';
+    
+            // On affiche un message de chargement
+            alert("Préparation du lien de téléchargement... Veuillez patienter.");
+
+            
+            const url = `https://youtube-mp36.p.rapidapi.com/dl?id=${videoId}`;
+            const options = {
+            	method: 'GET',
+            	headers: {
+            		'x-rapidapi-key': rapidApiKey,
+            		'x-rapidapi-host': 'youtube-mp36.p.rapidapi.com'
+            	}
+            };
+            
+            try {
+            	const response = await fetch(url, options);
+            	const result = await response.json();
+            	console.log(result);
+            } catch (error) {
+            	console.error(error);
+            }
         }
 
         // Event Listeners
