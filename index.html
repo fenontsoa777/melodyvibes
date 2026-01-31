@@ -13,6 +13,16 @@
             --bg: #f1f2f6;
             --accent: #2ed573;
         }
+         * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden; /* Empêche le défilement horizontal */
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             margin: 0;
@@ -186,12 +196,48 @@
             color: #747d8c;
         }
 
-        @media (max-width: 600px) {
-            .navbar { flex-direction: column; gap: 15px; }
-            .hero h1 { font-size: 2rem; }
-            .result-card { flex-direction: column; text-align: center; gap: 15px; }
-            .search-group { border-radius: 15px; }
-        }
+       @media (max-width: 600px) {
+    .navbar { 
+        flex-direction: column; 
+        gap: 15px; 
+        padding: 15px 5%; /* Réduit le padding pour gagner de l'espace */
+    }
+    
+    .hero h1 { font-size: 2rem; }
+    
+    .search-group { 
+        border-radius: 25px; 
+        width: 100%; /* S'assure qu'elle ne dépasse pas */
+    }
+
+    input[type="text"] {
+        padding: 12px 15px; /* Réduit la taille de l'input */
+        font-size: 1rem;
+    }
+
+    .result-card { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 15px; 
+        margin-left: 10px; 
+        margin-right: 10px; /* Ajoute une marge pour ne pas coller aux bords */
+    }
+
+    .result-card img {
+        width: 100%; /* L'image s'adapte à la largeur du téléphone */
+        max-width: 150px;
+        height: auto;
+    }
+
+    .actions {
+        width: 100%;
+    }
+
+    .btn-download {
+        width: 100%; /* Bouton plus large pour le pouce sur mobile */
+        display: block;
+    }
+}
     </style>
 </head>
 <body>
